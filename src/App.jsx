@@ -11,7 +11,7 @@ export function App() {
     { id: 1, task: "Tarea 1", completed: false },
   ]);
 
-  const todoTaskRef = useRef();
+  const todoTaskRef = useRef(); 
 
   useEffect (() => {
       const storedTodos = JSON.parse(localStorage.getItem(KEY));
