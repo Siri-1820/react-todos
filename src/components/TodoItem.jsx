@@ -8,7 +8,7 @@ export function TodoItem({ todo, toggleTodo }) {
   };
 
   return (
-    <li>
+    <li className='list-item'>
       <input type="checkbox" checked={completed} onChange={handleTodoClick} />
       {task}
     </li>

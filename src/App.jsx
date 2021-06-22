@@ -2,6 +2,10 @@ import React, { useState, Fragment, useRef, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { TodoList } from "./components/TodoList";
 
+import {GrAddCircle} from 'react-icons/gr'
+import {FaTrashAlt, FaStar} from 'react-icons/fa'
+import {RiTodoLine} from 'react-icons/ri'
+
 import './Estilos.css'
 
 const KEY = "todoApp.todos";
@@ -49,12 +53,18 @@ export function App() {
   }
 
   return (
+    <div className='App'>
     <Fragment>
+      <div className = 'contenedor'>
+      <h2 className='titulo'> <RiTodoLine/> Tareas por hacer </h2>
       <TodoList todos={todos} toggleTodo={toggleTodo} />
-      <input className='caja' ref={todoTaskRef} type="text" placeholder="Nueva Tarea" />
-      <button onClick={handleTodoAdd}>añadir</button>
-      <button onClick={handeleClearAll}>Eliminar</button>
-      <div>Te quedan {todos.filter((todo) => !todo.completed).length} tarea(s) por terminar</div>
-    </Fragment>
+      <input className='caja' ref={todoTaskRef} type="text" placeholder="ej. Matematicas" />{" "}
+      <button className='boton' onClick={handleTodoAdd}><GrAddCircle/></button>
+      <button className='boton' onClick={handeleClearAll}><FaTrashAlt/></button>
+      <div><strong>Te quedan {todos.filter((todo) => !todo.completed).length} tarea(s) por completar</strong></div><br></br>
+      </div>
+      <footer>Hecho por Sarahi Esquivel Pardo<FaStar/></footer>
+  </Fragment>
+    </div>
   );
 }
